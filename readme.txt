@@ -1,12 +1,3 @@
-=== カスタム投稿タイプでタグをクリックBOXを表示する ===
-function.php
-```php
-function add_clicktags() {
-  add_meta_box( "st-clicks-tags", __("Click tags", "simpletags"), array( &$this, "boxClickTags" ), "your_custom_posttype", "advanced", "core" );
-}
-add_action("admin_init", "add_clicktags");
-```
-
 === Simple Tags ===
 Contributors: momo360modena
 Donate link: http://beapi.fr/donate/
@@ -146,7 +137,7 @@ The Simple Tags can be installed in 3 easy steps:
 	* Restore custom post tags feature : st_the_tags()
 	* Fix a bug with widget taxo option saving
 * Version 2.0-beta1 :
-	* This version is a back to fondamentals. Somes features are removed !
+	* This version is a back to fondamentals. Somes features are removed ! 
 	* This version need testing !
 	* Remove old marker <!--st_tag_cloud-->
 	* Remove related posts
@@ -412,7 +403,7 @@ The Simple Tags can be installed in 3 easy steps:
 	* Fixes 2-3 minors bugs
 * Version 1.0
 	* Initial version
-
+	
 == Upgrade Notice ==
 
 Nothing to say...
