@@ -1,12 +1,3 @@
-# カスタム投稿タイプでタグをクリックBOXを表示する #
-function.php
-```php
-function add_clicktags() {
-  add_meta_box( "st-clicks-tags", __("Click tags", "simpletags"), array( &$this, "boxClickTags" ), "your_custom_posttype", "advanced", "core" );
-}
-add_action("admin_init", "add_clicktags");
-```
-
 # Simple Tags #
 
 **Contributors:** momo360modena
@@ -44,6 +35,18 @@ This plugin is developped on WordPress 3.3, with the constant WP_DEBUG to TRUE.
 	* Dynamic Tag Clouds with colors with Widgets (random order, etc)
 
 And more...
+
+## Custom Post ##
+add code function.php
+```
+function add_my_custom_field() {
+	add_meta_box('st-clicks-tags', __("Click tags", "simpletags"), 'admin_my_custompost_metabox', {post_type}, "side", "core");
+}
+function admin_my_custompost_metabox($post) {
+	echo '<div id="st-simple-tags-advance" data-taxonomy="{taxonomy_name}"></div>';
+}
+add_action('add_meta_boxes', 'add_my_custom_field');
+```
 
 ## Installation ##
 

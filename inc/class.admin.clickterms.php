@@ -69,7 +69,8 @@ class SimpleTags_Admin_ClickTags {
 	 */
 	public static function ajax_check() {
 		if ( isset($_GET['st_action']) && $_GET['st_action'] == 'click_tags' )  {
-			self::ajax_click_tags();
+			$taxonomy = esc_sql($_GET['taxonomy']);
+			self::ajax_click_tags($taxonomy);
 		}
 	}
 
@@ -79,13 +80,15 @@ class SimpleTags_Admin_ClickTags {
 	 * @return void
 	 * @author Amaury Balmer
 	 */
-	public static function ajax_click_tags() {
+	public static function ajax_click_tags($taxonomy) {
 		status_header( 200 ); // Send good header HTTP
 		header("Content-Type: text/html; charset=" . get_bloginfo('charset'));
 
-		// タグ名(taxonomy)が post_tag 以外だと表示されない、カスタム投稿タイプと分ける必要がある...
-		// タグ名を登録させる必要あり？
-		if ((int) wp_count_terms('post_tag', 'ignore_empty=false') == 0 ) { // No tags to suggest
+		if(!$taxonomy) {
+			$taxonomy = 'post_tag';
+		}
+
+		if ((int) wp_count_terms($taxonomy, 'ignore_empty=false') == 0 ) { // No tags to suggest
 			echo '<p>'.__('No terms in your WordPress database.', 'simpletags').'</p>';
 			exit();
 		}
@@ -119,9 +122,8 @@ class SimpleTags_Admin_ClickTags {
 			break;
 		}
 
-		// タグ名が post_tag 以外だと表示されない、カスタム投稿タイプと分ける必要がある...
 		// Get all terms, or filter with search
-		$terms = SimpleTags_Admin::getTermsForAjax( 'post_tag', $search, $order_by, $order );
+		$terms = SimpleTags_Admin::getTermsForAjax( $taxonomy, $search, $order_by, $order );
 		if ( empty($terms) || $terms == false ) {
 			echo '<p>'.__('No results from your WordPress database.', 'simpletags').'</p>';
 			exit();
