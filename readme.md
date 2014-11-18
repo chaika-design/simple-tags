@@ -1,20 +1,22 @@
 # Simple Tags #
 
-**Contributors:** momo360modena
-**Donate link:** http://beapi.fr/donate/
-**Tags:** tag, posts, tags, admin, administration, tagging, navigation, terms, taxonomy
-**Requires at least:** 3.0
-**Tested up to:** 3.5.1
-**Stable tag:** 2.3.2
+**Contributors:** momo360modena  
+**Donate link:** http://beapi.fr/donate/  
+**Tags:** tag, posts, tags, admin, administration, tagging, navigation, terms, taxonomy  
+**Requires at least:** 3.3
+**Tested up to:** 4.0
+**Stable tag:** 2.4
 
-**Add some tools for taxonomies :** Terms suggestion, Mass Edit Terms, Auto link Terms, Ajax Autocompletion, Click Terms, Auto terms, Advanced manage terms, Advanced Post Terms, Related Posts by Terms, etc.
+**Add some tools for taxonomies :** Terms suggestion, Mass Edit Terms, Auto link Terms, Ajax Autocompletion, Click Terms, Auto terms, Advanced manage terms, Advanced Post Terms, Related Posts by Terms, etc.  
 
 ## Description ##
+
+**I do not offer any support for this plugin. I do not participate in any subject on the WordPress.org support forum. If you find a bug, thank you for the report on the Github repository, and make a exhaustive request (plugin installed / error message / PHP function called). Thank you.**
 
 Simple Tags is the successor of Simple Tagging Plugin
 **This is THE perfect tool to manage perfectly your WP terms for any taxonomy**
 
-**It was written with this philosophy :** best performances, more secured and brings a lot of new functions
+**It was written with this philosophy :** best performances, more secured and brings a lot of new functions  
 
 This plugin is developped on WordPress 3.3, with the constant WP_DEBUG to TRUE.
 
@@ -36,18 +38,6 @@ This plugin is developped on WordPress 3.3, with the constant WP_DEBUG to TRUE.
 
 And more...
 
-## Custom Post ##
-add code function.php
-```
-function add_my_custom_field() {
-	add_meta_box('st-clicks-tags', __("Click tags", "simpletags"), 'admin_my_custompost_metabox', {post_type}, "side", "core");
-}
-function admin_my_custompost_metabox($post) {
-	echo '<div id="st-simple-tags-advance" data-taxonomy="{taxonomy_name}"></div>';
-}
-add_action('add_meta_boxes', 'add_my_custom_field');
-```
-
 ## Installation ##
 
 **Required PHP5.**
@@ -62,6 +52,7 @@ The Simple Tags can be installed in 3 easy steps:
 
 ### Simple Tags is compatible with which WordPress versions ? ###
 
+* 2.4 and upper are compatible only with WordPress 4.0 !
 * 2.3 and upper are compatible only with WordPress 3.5 !
 * 2.0 and upper are compatible only with WordPress 3.0 & 3.1 & 3.2 & 3.3 !
 * 1.7 and upper are compatible only with WordPress 2.8, 2.9 !
@@ -73,20 +64,31 @@ The Simple Tags can be installed in 3 easy steps:
 ###1. A example tag cloud (with dynamic color and size)###
 ![A example tag cloud (with dynamic color and size)](http://s.wordpress.org/extend/plugins/simple-tags/screenshot-1.png)
 
-**2. Do you have a not yet tagged blog ? Edit mass tags options is perfect for you :** tag 20, 30 or 50 articles with autocompletion in one step !
+**2. Do you have a not yet tagged blog ? Edit mass tags options is perfect for you :** tag 20, 30 or 50 articles with autocompletion in one step !  
 ###2. Autotagging your content !###
 ![Autotagging your content !](http://s.wordpress.org/extend/plugins/simple-tags/screenshot-2.png)
 
 ###3. Add tags easily with click tags !###
 ![Add tags easily with click tags !](http://s.wordpress.org/extend/plugins/simple-tags/screenshot-3.png)
 
-**3. To help you to add easily tags, Simple Tags has an autocompletion script. When you begin to tape a letter or more, a list a tags appears :** you have only to choose ! You can choose the down direction to see all the tags.
+**3. To help you to add easily tags, Simple Tags has an autocompletion script. When you begin to tape a letter or more, a list a tags appears :** you have only to choose ! You can choose the down direction to see all the tags.  
 ###4. You also can suggest tags from lot's of service (Yahoo! Term Extraction API, OpenCalais, Alchemy, Zemanta, Tag The Net, Local DB)###
 ![You also can suggest tags from lot's of service (Yahoo! Term Extraction API, OpenCalais, Alchemy, Zemanta, Tag The Net, Local DB)](http://s.wordpress.org/extend/plugins/simple-tags/screenshot-4.png)
 
 
 ## Changelog ##
 
+* Version 2.4
+    * Test OK vs WP 4.0.x
+    * Fix Yahoo terms suggestion (use new API)
+    * Fix conflict with ShareThis plugin
+    * Add option for autolink title attribute
+    * Add current state for "click tags" feature (opacity changed if tags is already selected)
+    * Fix order by tag cloud
+    * Implement dataTXT provider for suggest terms feature (from Github contribution SpazioDati/master)
+    * Implement Tag4Site provider for suggest terms feature (from Sergey Zobin)
+    * Fix shortcode usage with &
+    * Add support of category name into tag cloud function
 * Version 2.3.2
 	* Move all get_option request into plugin class, use static
 	* Add option for limit autolinks to singular view (default setting, you need change this setting in DB for enable autolinks into all views)
@@ -117,7 +119,7 @@ The Simple Tags can be installed in 3 easy steps:
 	* Fix bug with autocompletion. (jQuery want now a strict content type text/plain)
 	* Upgrade JS Libary (jQuery Autocomplete, jQuery Cookie, jQuery bgIframe)
 * Version 2.0-beta9 :
-**	* Fix conflict with plugin using Google Library Javascript for jQuery. Example :** "Use Google Libraries"
+**	* Fix conflict with plugin using Google Library Javascript for jQuery. Example :** "Use Google Libraries"  
 	* Add an option for choose input text or textarea for old tags field
 	* Add an option for min chars autocompletion
 * Version 2.0-beta8 :
@@ -155,10 +157,10 @@ The Simple Tags can be installed in 3 easy steps:
 * Version 2.0-beta2 :
 	* Restore empty templates functions for skip errors
 	* Fix a bug with autolinks
-**	* Restore custom post tags feature :** st_the_tags()
+**	* Restore custom post tags feature :** st_the_tags()  
 	* Fix a bug with widget taxo option saving
 * Version 2.0-beta1 :
-	* This version is a back to fondamentals. Somes features are removed !
+	* This version is a back to fondamentals. Somes features are removed ! 
 	* This version need testing !
 	* Remove old marker <!--st_tag_cloud-->
 	* Remove related posts
@@ -169,8 +171,8 @@ The Simple Tags can be installed in 3 easy steps:
 	* Remove auto-add post tags
 	* Remove embedded tags
 	* Change method for tags for page.
-**	* Improve memory consommation :** all feature can be deactived.
-**	* Improve memory consommation :** Stop use class variables for options
+**	* Improve memory consommation :** all feature can be deactived.  
+**	* Improve memory consommation :** Stop use class variables for options  
 	* Support mass edit with CPT/CT
 	* Improve AJAX call by using WordPress hook
 * Version 1.8.1 :
@@ -215,15 +217,15 @@ The Simple Tags can be installed in 3 easy steps:
 	* Fix PHP4.
 	* Fix bug with Yahoo API/Tag the net for long post
 	* Add OpenCalais, Alchemy and Zemanta (first pass, API offers much more possibilities!)
-*** Version 1.7.1-rc1.2 :** RC 1.2 (this version must be test !)
+*** Version 1.7.1-rc1.2 :** RC 1.2 (this version must be test !)  
 	* Fix compatibility PHP4
-*** Version 1.7.1-rc1.1 :** RC 1.1 (this version must be test !)
+*** Version 1.7.1-rc1.1 :** RC 1.1 (this version must be test !)  
 	* Fix a bug with activation hook.
-*** Version 1.7.1-rc1 :** RC 1 (this version must be test !)
+*** Version 1.7.1-rc1 :** RC 1 (this version must be test !)  
 	* Somes ajust for Wordpress 2.9
 	* Remove 99,99% notices PHP from ST
 	* Clean some part of the plugin.
-*** Version 1.7.1-a1 :** Alpha 1
+*** Version 1.7.1-a1 :** Alpha 1  
 	* Check compatibility WP 2.9 ( fix somes UI bugs )
 	* Fix a bug with save Widget options
 * Version 1.7b1.1
@@ -385,13 +387,13 @@ The Simple Tags can be installed in 3 easy steps:
 	* Minor improve in administration (order keeping on update)
 	* Cleaner for empty terms
 	* Add limit days for Tag Clouds and Related Posts
-**	* Add the marker:** %relatedtags% for Related Posts => Display tag shared between 2 posts.
+**	* Add the marker:** %relatedtags% for Related Posts => Display tag shared between 2 posts.  
 	* True random for tag cloud
 	* Tag cloud can generate class level for CSS size/color
 	* Add Order to Tag Cloud Widgets
 	* Add 2 functions
-**		* st_meta_keywords() :** Display keywords for manual insert in header
-**		* st_the_tags() :** Improved the official the_tags() functions.
+**		* st_meta_keywords() :** Display keywords for manual insert in header  
+**		* st_the_tags() :** Improved the official the_tags() functions.  
 	* Add marker for Technorati, Flickr and Delicious
 * Version 1.0.4a (1.0.4a fix a small bug introduced in 1.0.4)
 	* Update 3 translations for 1.0.4
@@ -410,10 +412,10 @@ The Simple Tags can be installed in 3 easy steps:
 		* Delete duplicate keywords
 	* Related posts
 		* Possibility to randomize post
-**		* New class for tag UL:** "st-related-posts"
+**		* New class for tag UL:** "st-related-posts"  
 	* Tag cloud
 		* Possibility to randomize tags
-**		* New class for tag UL:** "st-tag-cloud"
+**		* New class for tag UL:** "st-tag-cloud"  
 	* Administration
 		* Use WP roles instead old levels
 		* Possibility to order "Mass edit Tags" by Date or ID
@@ -424,7 +426,7 @@ The Simple Tags can be installed in 3 easy steps:
 	* Fixes 2-3 minors bugs
 * Version 1.0
 	* Initial version
-
+	
 ## Upgrade Notice ##
 
 Nothing to say...
