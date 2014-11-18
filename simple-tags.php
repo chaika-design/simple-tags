@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Simple Tags
-Plugin URI: https://github.com/chaika-design/simple-tags/tree/develop
-Description: Origin Author: Amaury BALMER (http://www.herewithme.fr) Extended Tagging for WordPress 3.3, 3.4 & 3.5 : Suggested Tags, Mass edit tags, Auto-tags, Autocompletion, Related Posts etc. NOW Compatible custom post type and custom taxonomy !
-Version: 2.3.2
-Author: Chaika Design
-Author URI: http://chaika-design.com/
+Plugin URI: https://github.com/herewithme/simple-tags
+Description: Extended Tagging for WordPress 4.0.x : Suggested Tags, Mass edit tags, Auto-tags, Autocompletion, Related Posts etc. NOW Compatible custom post type and custom taxonomy !
+Version: 2.4
+Author: Amaury BALMER
+Author URI: http://www.herewithme.fr
 Text Domain: simpletags
 
 Copyright 2013 - Amaury BALMER (amaury@balmer.fr)
@@ -30,7 +30,7 @@ Credits Icons :
 
 Todo:
 	Both :
-	Admin:
+	Admin: 
 	Client :
 */
 
@@ -44,12 +44,12 @@ if (version_compare(PHP_VERSION, '5.0.0', '<') ) {
 	if( function_exists('deactivate_plugins') ) {
 		deactivate_plugins(plugin_basename(__FILE__), true);
 	}
-
+	
 	//Spit out die messages
 	wp_die(sprintf(__('Your PHP version is too old, please upgrade to a newer version. Your version is %s, Simple Tags requires %s. Remove the plugin from WordPress plugins directory with FTP client.', 'simpletags'), phpversion(), '5.0.0'));
 }
 
-define( 'STAGS_VERSION', 			'2.3.2' );
+define( 'STAGS_VERSION', 			'2.4' );
 define( 'STAGS_OPTIONS_NAME', 		'simpletags' ); // Option name for save settings
 define( 'STAGS_OPTIONS_NAME_AUTO', 	'simpletags-auto' ); // Option name for save settings auto terms
 
@@ -74,13 +74,13 @@ function init_simple_tags() {
 	// Load client
 	new SimpleTags_Client();
 	new SimpleTags_Client_TagCloud();
-
+	
 	// Admin and XML-RPC
 	if ( is_admin() ) {
 		require( STAGS_DIR . '/inc/class.admin.php' );
 		new SimpleTags_Admin();
 	}
-
+	
 	add_action( 'widgets_init', create_function('', 'return register_widget("SimpleTags_Widget");') );
 }
 add_action( 'plugins_loaded', 'init_simple_tags' );
