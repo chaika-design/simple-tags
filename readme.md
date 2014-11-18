@@ -1,3 +1,12 @@
+# カスタム投稿タイプでタグをクリックBOXを表示する #
+function.php
+```php
+function add_clicktags() {
+  add_meta_box( "st-clicks-tags", __("Click tags", "simpletags"), array( &$this, "boxClickTags" ), "your_custom_posttype", "advanced", "core" );
+}
+add_action("admin_init", "add_clicktags");
+```
+
 # Simple Tags #
 
 **Contributors:** momo360modena
