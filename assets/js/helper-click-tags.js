@@ -8,7 +8,7 @@ jQuery(document).ready(function() {
 	// Show click tags
 	jQuery("#open_clicktags").click(function(event) {
 		event.preventDefault();
-	
+
 		jQuery("#st-clicks-tags .container_clicktags")
 			.fadeIn('slow')
 			.load( ajaxurl + '?action=simpletags&stags_action=click_tags&post_id='+current_post_id, function() {
@@ -21,14 +21,14 @@ jQuery(document).ready(function() {
 				jQuery("#open_clicktags").hide();
 				jQuery("#close_clicktags").show();
 			});
-		
+
 		return false;
 	});
-	
+
 	// Hide click tags
 	jQuery("#close_clicktags").click(function(event) {
 		event.preventDefault();
-		
+
 		jQuery("#st-clicks-tags .container_clicktags").fadeOut('slow', function() {
 			jQuery("#open_clicktags").show();
 			jQuery("#close_clicktags").hide();
